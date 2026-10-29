@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVENOVA | Galletas Saludables de Avena sin Lácteos</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            rose: '#D94A6B',
+                            crimson: '#AD1D45',
+                            darkcrimson: '#7A0E2B',
+                            cream: '#FAF6F0',
+                            warmwhite: '#FFFDF9',
+                            oat: '#E6D3B3',
+                            gold: '#C8933F',
+                            olive: '#5A7341',
+                            darkolive: '#3B4D29',
+                            charcoal: '#231F20'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-brand {
+            background: linear-gradient(135deg, #AD1D45 0%, #D94A6B 50%, #C8933F 100%);
+        }
+        .hero-pattern {
+            background-color: #FAF6F0;
+            background-image: radial-gradient(#C8933F 0.55px, transparent 0.55px), radial-gradient(#C8933F 0.55px, #FAF6F0 0.55px);
+            background-size: 22px 22px;
+            background-position: 0 0,11px 11px;
+            background-opacity: 0.15;
+        }
+        .glass-header {
+            background: rgba(255, 253, 249, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        .soalpro-menu {
+            background: linear-gradient(180deg, #AD1D45 0%, #851233 100%);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D94A6B;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-warmwhite text-brand-charcoal font-sans antialiased selection:bg-brand-rose selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-darkcrimson text-white text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wide flex justify-center items-center gap-2">
+        <span class="bg-brand-rose text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">Novedad</span>
+        <span>🌱 Galletas 100% Libres de Lácteos con Avena y Plantas Medicinales en La Paz, Bolivia</span>
+    </div>
+
+    <!-- MAIN HEADER (Inspirado en Soalpro / Soprole) -->
+    <header class="sticky top-0 z-40 glass-header border-b border-brand-oat/30 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                    <i data-lucide="cookie" class="w-6 h-6"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-tight text-brand-crimson leading-none">Avenova</span>
+                    <span class="text-[10px] font-semibold tracking-widest text-brand-olive uppercase">Nutre Tu Bienestar</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-sm">
+                <a href="#inicio" class="hover:text-brand-rose transition-colors py-1 border-b-2 border-transparent hover:border-brand-rose">Inicio</a>
+                <a href="#quienes-somos" class="hover:text-brand-rose transition-colors py-1 border-b-2 border-transparent hover:border-brand-rose">Quiénes Somos</a>
+                <a href="#productos" class="hover:text-brand-rose transition-colors py-1 border-b-2 border-transparent hover:border-brand-rose">Productos</a>
+                <a href="#simulador" class="hover:text-brand-rose transition-colors py-1 border-b-2 border-transparent hover:border-brand-rose">Calculadora Pedidos</a>
+                <a href="#gestion" class="hover:text-brand-rose transition-colors py-1 border-b-2 border-transparent hover:border-brand-rose">Gestión & Finanzas</a>
+                <a href="#ubicacion" class="hover:text-brand-rose transition-colors py-1 border-b-2 border-transparent hover:border-brand-rose">Ubicación</a>
+            </nav>
+
+            <!-- Action Button & Soalpro Style Menu Trigger -->
+            <div class="flex items-center gap-3">
+                <a href="#simulador" class="hidden sm:inline-flex items-center gap-2 bg-brand-olive hover:bg-brand-darkolive text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span>Hacer Pedido</span>
+                </a>
+
+                <!-- Red/Rose Menu Button inspired by Soalpro -->
+                <button id="menu-btn" class="bg-brand-crimson hover:bg-brand-darkcrimson text-white p-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 focus:outline-none" aria-label="Abrir Menú">
+                    <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                    <span class="text-xs font-bold uppercase hidden md:inline tracking-wider">Menú</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FULLSCREEN OVERLAY MENU (Estilo Soalpro / Soprole) -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 soalpro-menu text-white transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto">
+        <!-- Overlay Header -->
+        <div class="p-6 flex justify-between items-center border-b border-white/10">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white text-brand-crimson flex items-center justify-center font-bold">
+                    <i data-lucide="cookie" class="w-5 h-5"></i>
+                </div>
+                <span class="font-serif text-2xl font-bold text-white tracking-wide">AVENOVA</span>
+            </div>
+            <button id="close-menu-btn" class="bg-white/10 hover:bg-white/20 text-white p-2.5 rounded-full transition-colors">
+                <i data-lucide="x" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Menu Navigation Links -->
+        <div class="px-8 py-10 flex flex-col gap-6 text-center md:text-left max-w-4xl mx-auto w-full">
+            <p class="text-brand-oat text-xs font-bold uppercase tracking-widest mb-2">Navegación del Emprendimiento</p>
+            <a href="#inicio" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>1. INICIO</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+            <a href="#quienes-somos" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>2. QUIÉNES SOMOS</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+            <a href="#productos" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>3. NUESTROS PRODUCTOS</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+            <a href="#simulador" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>4. CALCULADORA DE PEDIDOS</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+            <a href="#gestion" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>5. GESTIÓN FINANCIERA & LEGAL</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+            <a href="#ubicacion" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>6. PUNTOS DE VENTA EN LA PAZ</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+            <a href="#contacto" class="menu-link text-3xl md:text-4xl font-extrabold hover:text-brand-oat transition-colors flex items-center justify-between border-b border-white/10 pb-4">
+                <span>7. CONTÁCTANOS</span>
+                <i data-lucide="chevron-right" class="w-6 h-6 opacity-60"></i>
+            </a>
+        </div>
+
+        <!-- Overlay Footer Info -->
+        <div class="p-8 bg-black/20 text-center text-sm text-brand-oat flex flex-col md:flex-row justify-between items-center gap-4">
+            <span>U.E. María Auxiliadora - La Paz, Bolivia</span>
+            <span>Unidad Educativa Técnica Tecnológica Especializada Contabilidad</span>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-white"><i data-lucide="video" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SLIDER SECTION -->
+    <section id="inicio" class="relative overflow-hidden hero-pattern py-12 lg:py-20 border-b border-brand-oat/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-crimson/10 text-brand-crimson border border-brand-rose/20 px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Emprendimiento Escolar Innovador</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-charcoal leading-tight">
+                        Galletas de Avena con <span class="text-brand-crimson underline decoration-brand-gold decoration-4 underline-offset-8">Plantas Medicinales</span>
+                    </h1>
+
+                    <p class="text-lg text-gray-700 leading-relaxed font-normal max-w-2xl">
+                        Creadas especialmente para personas con <strong class="text-brand-crimson font-semibold">intolerancia a la lactosa</strong> y amantes del bienestar. Una fusión artesanal de avena nutritiva, miel pura y la frescura digestiva de la manzanilla, menta y cedrón.
+                    </p>
+
+                    <!-- Features Badges -->
+                    <div class="grid grid-cols-3 gap-3 w-full max-w-lg pt-2">
+                        <div class="bg-white p-3 rounded-2xl shadow-sm border border-brand-oat/50 flex flex-col items-center text-center">
+                            <span class="text-2xl mb-1">🥛❌</span>
+                            <span class="text-xs font-bold text-brand-charcoal">100% Sin Lactosa</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl shadow-sm border border-brand-oat/50 flex flex-col items-center text-center">
+                            <span class="text-2xl mb-1">🌿🌾</span>
+                            <span class="text-xs font-bold text-brand-charcoal">Plantas Naturales</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl shadow-sm border border-brand-oat/50 flex flex-col items-center text-center">
+                            <span class="text-2xl mb-1">📦♻️</span>
+                            <span class="text-xs font-bold text-brand-charcoal">Empaque Kraft Eco</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to action buttons -->
+                    <div class="flex flex-wrap gap-4 pt-4 w-full sm:w-auto">
+                        <a href="#simulador" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-3 bg-brand-crimson hover:bg-brand-darkcrimson text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-brand-crimson/25 transition-all hover:scale-105">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            <span>Pedir Paquete (Bs 17.60)</span>
+                        </a>
+                        <a href="#quienes-somos" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white hover:bg-brand-cream text-brand-charcoal border border-brand-oat px-6 py-4 rounded-2xl font-bold shadow-sm transition-all">
+                            <span>Conocer Proyecto</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Interactive Carousel Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md bg-white rounded-3xl shadow-2xl p-6 border-4 border-brand-cream overflow-hidden">
+                        
+                        <!-- Slide Content Container -->
+                        <div id="hero-slider-content" class="transition-all duration-500">
+                            <!-- JS Inject Slide Dynamic Content -->
+                        </div>
+
+                        <!-- Slider Navigation Controls -->
+                        <div class="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+                            <div class="flex gap-1.5" id="slider-dots">
+                                <button class="w-3 h-3 rounded-full bg-brand-crimson transition-all"></button>
+                                <button class="w-3 h-3 rounded-full bg-brand-oat transition-all"></button>
+                                <button class="w-3 h-3 rounded-full bg-brand-oat transition-all"></button>
+                            </div>
+                            <div class="flex gap-2">
+                                <button id="prev-slide" class="p-2 rounded-full bg-brand-cream hover:bg-brand-oat/50 text-brand-charcoal transition-colors">
+                                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                                </button>
+                                <button id="next-slide" class="p-2 rounded-full bg-brand-crimson text-white hover:bg-brand-darkcrimson transition-colors">
+                                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS & HISTORIA ESTUDIANTIL -->
+    <section id="quienes-somos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-olive font-bold text-xs uppercase tracking-widest bg-brand-olive/10 px-3 py-1 rounded-full">Proyecto Técnico Especializado</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-charcoal mt-3">Detrás de AVENOVA</h2>
+                <p class="text-gray-600 mt-3">Iniciativa emprendedora nacida en la Unidad Educativa María Auxiliadora de La Paz, Bolivia, orientada a la contabilidad, innovación en alimentos e inclusión nutricional.</p>
+            </div>
+
+            <!-- Team / Origin Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-brand-warmwhite p-8 rounded-3xl border border-brand-oat/40 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-rose/10 text-brand-rose flex items-center justify-center mb-6 font-bold">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-charcoal mb-2">Equipo Emprendedor</h3>
+                    <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Desarrollado con dedicación por las estudiantes:
+                    </p>
+                    <ul class="text-sm font-semibold text-brand-crimson space-y-1.5">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Natalia Jhovana Cruz Sanchez</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Giselle Davinia Muñoz Patiño</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-gold"></i> Vania Quisbert Maldonado</li>
+                    </ul>
+                </div>
+
+                <div class="bg-brand-warmwhite p-8 rounded-3xl border border-brand-oat/40 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-6 font-bold">
+                        <i data-lucide="award" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-charcoal mb-2">Asesoría Docente</h3>
+                    <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Guiado académicamente bajo los estándares del área contable y vocacional:
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li><strong class="text-brand-charcoal">Docente de Contabilidad:</strong><br>Prof. Rosa Virginia Uturunco Lopez</li>
+                        <li><strong class="text-brand-charcoal">Orientación Vocacional:</strong><br>Lic. Mateo Gomez</li>
+                    </ul>
+                </div>
+
+                <div class="bg-brand-warmwhite p-8 rounded-3xl border border-brand-oat/40 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-olive/10 text-brand-olive flex items-center justify-center mb-6 font-bold">
+                        <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-charcoal mb-2">El Problema que Resolvemos</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        La escasa oferta comercial de galletas sin leche dificulta que las personas con intolerancia a la lactosa disfruten de snacks sabrosos. AVENOVA fusiona <strong class="text-brand-olive">avena y plantas aromáticas digestivas</strong> como solución accesible e inclusiva.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Misión, Visión, Valores Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-brand-cream rounded-3xl p-8 md:p-12 border border-brand-oat/60">
+                <div>
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold text-brand-crimson mb-6">Filosofía Corporativa</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-crimson text-white flex-shrink-0 flex items-center justify-center font-bold">M</div>
+                            <div>
+                                <h4 class="font-bold text-brand-charcoal text-lg">Misión</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed mt-1">Elaborar y comercializar galletas saludables libres de leche a base de avena y plantas medicinales, brindando una alternativa alimenticia de alta calidad para personas intolerantes a la lactosa y público en general.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-gold text-white flex-shrink-0 flex items-center justify-center font-bold">V</div>
+                            <div>
+                                <h4 class="font-bold text-brand-charcoal text-lg">Visión</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed mt-1">Ser una marca reconocida en Bolivia por ofrecer snacks saludables libres de leche, destacándonos por la innovación, calidad e inclusión alimentaria.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-brand-charcoal text-base uppercase tracking-wider mb-4">Nuestros Valores Fundamentales</h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white p-4 rounded-xl border border-brand-oat/40 shadow-xs">
+                            <span class="font-bold text-brand-crimson text-sm block">Responsabilidad</span>
+                            <span class="text-xs text-gray-500">Estándares estrictos de inocuidad y cero lácteos.</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-brand-oat/40 shadow-xs">
+                            <span class="font-bold text-brand-olive text-sm block">Inclusión</span>
+                            <span class="text-xs text-gray-500">Opciones reales para estómagos sensibles.</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-brand-oat/40 shadow-xs">
+                            <span class="font-bold text-brand-gold text-sm block">Innovación</span>
+                            <span class="text-xs text-gray-500">Fusión botánica con avena nutritiva.</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-brand-oat/40 shadow-xs">
+                            <span class="font-bold text-brand-rose text-sm block">Eco-Conciencia</span>
+                            <span class="text-xs text-gray-500">Empaques Kraft 100% biodegradables.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NUESTROS PRODUCTOS & VARIACIONES -->
+    <section id="productos" class="py-20 bg-brand-warmwhite border-t border-brand-oat/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-crimson font-bold text-xs uppercase tracking-widest bg-brand-crimson/10 px-3 py-1 rounded-full">Catálogo de Variedades</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-charcoal mt-3">Tres Sabores, Tres Beneficios Naturales</h2>
+                <p class="text-gray-600 mt-3">Cada bolsita contiene 6 galletas artesanales horneadas cuidadosamente con copos de avena, miel pura y la esencia de plantas medicinales seleccionadas.</p>
+            </div>
+
+            <!-- Products Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Product 1: Manzanilla -->
+                <div class="bg-white rounded-3xl border border-brand-oat/60 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-amber-50 p-8 text-center relative overflow-hidden">
+                            <span class="absolute top-4 right-4 bg-amber-200 text-amber-900 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full">Digestivo Suave</span>
+                            <div class="w-24 h-24 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-4xl shadow-inner my-2 group-hover:scale-110 transition-transform">
+                                🌼
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-amber-950 mt-2">Manzanilla</h3>
+                            <p class="text-xs text-amber-800 font-medium">Aroma suave & alivio estomacal</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Galleta crujiente de avena infusionada con flor de manzanilla seca y triturada. Aporta una sensación reconfortante y promueve la buena digestión.
+                            </p>
+                            <div class="border-t border-gray-100 pt-3 text-xs space-y-2 text-gray-500">
+                                <div class="flex justify-between"><span>Presentación:</span><strong class="text-gray-800">Bolsa Kraft (6 unidades)</strong></div>
+                                <div class="flex justify-between"><span>Sabor predominante:</span><strong class="text-gray-800">Floral y dulzor de miel</strong></div>
+                                <div class="flex justify-between"><span>Precio unitario:</span><strong class="text-brand-crimson font-bold text-sm">Bs 17.60</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="quickAdd('Manzanilla')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Añadir a Pedido</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Menta -->
+                <div class="bg-white rounded-3xl border border-brand-oat/60 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-emerald-50 p-8 text-center relative overflow-hidden">
+                            <span class="absolute top-4 right-4 bg-emerald-200 text-emerald-900 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full">Frescura Vital</span>
+                            <div class="w-24 h-24 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-4xl shadow-inner my-2 group-hover:scale-110 transition-transform">
+                                🌿
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-emerald-950 mt-2">Menta Fresca</h3>
+                            <p class="text-xs text-emerald-800 font-medium">Sabor revitalizante y fresco</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Elaborada con hojas de menta natural que otorgan una nota fresca única. Perfecta como snack de media mañana o recarga de energía durante el día.
+                            </p>
+                            <div class="border-t border-gray-100 pt-3 text-xs space-y-2 text-gray-500">
+                                <div class="flex justify-between"><span>Presentación:</span><strong class="text-gray-800">Bolsa Kraft (6 unidades)</strong></div>
+                                <div class="flex justify-between"><span>Sabor predominante:</span><strong class="text-gray-800">Herbal fresco y avena</strong></div>
+                                <div class="flex justify-between"><span>Precio unitario:</span><strong class="text-brand-crimson font-bold text-sm">Bs 17.60</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="quickAdd('Menta')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Añadir a Pedido</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Cedrón -->
+                <div class="bg-white rounded-3xl border border-brand-oat/60 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-lime-50 p-8 text-center relative overflow-hidden">
+                            <span class="absolute top-4 right-4 bg-lime-200 text-lime-900 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full">Aroma Cítrico</span>
+                            <div class="w-24 h-24 mx-auto rounded-full bg-lime-100 flex items-center justify-center text-4xl shadow-inner my-2 group-hover:scale-110 transition-transform">
+                                🌱
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold text-lime-950 mt-2">Cedrón Cítrico</h3>
+                            <p class="text-xs text-lime-800 font-medium">Fragancia relajante de hierba luisa</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Galleta de textura crujiente con toque cítrico característico del cedrón. Ayuda a reducir la pesadez y brindar un momento de calma.
+                            </p>
+                            <div class="border-t border-gray-100 pt-3 text-xs space-y-2 text-gray-500">
+                                <div class="flex justify-between"><span>Presentación:</span><strong class="text-gray-800">Bolsa Kraft (6 unidades)</strong></div>
+                                <div class="flex justify-between"><span>Sabor predominante:</span><strong class="text-gray-800">Cítrico suave y tostado</strong></div>
+                                <div class="flex justify-between"><span>Precio unitario:</span><strong class="text-brand-crimson font-bold text-sm">Bs 17.60</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="quickAdd('Cedron')" class="w-full bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Añadir a Pedido</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA / SIMULADOR DE PEDIDOS E INTERACTIVO -->
+    <section id="simulador" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-cream border-2 border-brand-oat rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="bg-brand-crimson text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Simulador de Compra Directa</span>
+                    <h2 class="font-serif text-3xl font-bold text-brand-charcoal mt-3">Calculadora de Pedidos AVENOVA</h2>
+                    <p class="text-sm text-gray-600 mt-2">Selecciona la cantidad de bolsitas por variedad. El precio oficial por paquete de 6 unidades es de <strong class="text-brand-crimson">Bs 17.60</strong>.</p>
+                </div>
+
+                <!-- Order Calculator Controls -->
+                <div class="space-y-6">
+                    
+                    <!-- Item Manzanilla -->
+                    <div class="bg-white p-4 rounded-2xl border border-brand-oat/50 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+                        <div class="flex items-center gap-4">
+                            <span class="text-3xl">🌼</span>
+                            <div>
+                                <h4 class="font-bold text-brand-charcoal">Galletas de Manzanilla</h4>
+                                <span class="text-xs text-gray-500">6 unidades por bolsa • Bs 17.60</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('manzanilla', -1)" class="w-9 h-9 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex items-center justify-center transition-colors">-</button>
+                            <span id="qty-manzanilla" class="font-bold text-lg w-8 text-center">0</span>
+                            <button onclick="updateQty('manzanilla', 1)" class="w-9 h-9 rounded-xl bg-brand-crimson text-white font-bold flex items-center justify-center hover:bg-brand-darkcrimson transition-colors">+</button>
+                            <span class="text-sm font-bold text-brand-crimson min-w-[70px] text-right" id="subtotal-manzanilla">Bs 0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Item Menta -->
+                    <div class="bg-white p-4 rounded-2xl border border-brand-oat/50 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+                        <div class="flex items-center gap-4">
+                            <span class="text-3xl">🌿</span>
+                            <div>
+                                <h4 class="font-bold text-brand-charcoal">Galletas de Menta</h4>
+                                <span class="text-xs text-gray-500">6 unidades por bolsa • Bs 17.60</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('menta', -1)" class="w-9 h-9 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex items-center justify-center transition-colors">-</button>
+                            <span id="qty-menta" class="font-bold text-lg w-8 text-center">0</span>
+                            <button onclick="updateQty('menta', 1)" class="w-9 h-9 rounded-xl bg-brand-crimson text-white font-bold flex items-center justify-center hover:bg-brand-darkcrimson transition-colors">+</button>
+                            <span class="text-sm font-bold text-brand-crimson min-w-[70px] text-right" id="subtotal-menta">Bs 0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Item Cedrón -->
+                    <div class="bg-white p-4 rounded-2xl border border-brand-oat/50 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+                        <div class="flex items-center gap-4">
+                            <span class="text-3xl">🌱</span>
+                            <div>
+                                <h4 class="font-bold text-brand-charcoal">Galletas de Cedrón</h4>
+                                <span class="text-xs text-gray-500">6 unidades por bolsa • Bs 17.60</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="updateQty('cedron', -1)" class="w-9 h-9 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold flex items-center justify-center transition-colors">-</button>
+                            <span id="qty-cedron" class="font-bold text-lg w-8 text-center">0</span>
+                            <button onclick="updateQty('cedron', 1)" class="w-9 h-9 rounded-xl bg-brand-crimson text-white font-bold flex items-center justify-center hover:bg-brand-darkcrimson transition-colors">+</button>
+                            <span class="text-sm font-bold text-brand-crimson min-w-[70px] text-right" id="subtotal-cedron">Bs 0.00</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Total Summary & Delivery Options -->
+                <div class="mt-8 border-t border-brand-oat pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="text-center md:text-left">
+                        <span class="text-xs text-gray-500 uppercase tracking-wider block font-semibold">Total Estimado del Pedido:</span>
+                        <span id="grand-total" class="font-serif text-3xl font-extrabold text-brand-crimson">Bs 0.00</span>
+                        <span class="text-xs text-gray-500 block mt-1" id="total-units">0 bolsitas en total (0 galletas)</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                        <button onclick="resetCalculator()" class="px-4 py-3 bg-white text-gray-600 rounded-xl font-semibold border border-brand-oat hover:bg-gray-50 transition-colors text-sm">
+                            Limpiar
+                        </button>
+                        <button onclick="sendWhatsAppOrder()" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all hover:scale-105">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span>Enviar Pedido por WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD DE GESTIÓN TÉCNICA, CONTABLE Y LEGAL -->
+    <section id="gestion" class="py-20 bg-brand-warmwhite border-t border-brand-oat/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-gold font-bold text-xs uppercase tracking-widest bg-brand-gold/10 px-3 py-1 rounded-full">Reporte del Proyecto Académico</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-charcoal mt-3">Gestión Financiera, Legal y Operativa</h2>
+                <p class="text-gray-600 mt-2">Transparencia contable desarrollada bajo la guía del área de Contabilidad especializada.</p>
+            </div>
+
+            <!-- Tab Navigation Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8 bg-white p-2 rounded-2xl border border-brand-oat/50 shadow-sm max-w-4xl mx-auto">
+                <button onclick="switchTab('tab-resultados')" id="btn-tab-resultados" class="tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all bg-brand-crimson text-white shadow-xs">
+                    Estado de Resultados
+                </button>
+                <button onclick="switchTab('tab-flujo')" id="btn-tab-flujo" class="tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold text-gray-600 hover:text-brand-crimson transition-all">
+                    Pronóstico de Ventas
+                </button>
+                <button onclick="switchTab('tab-personal')" id="btn-tab-personal" class="tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold text-gray-600 hover:text-brand-crimson transition-all">
+                    Organigrama & Personal
+                </button>
+                <button onclick="switchTab('tab-legal')" id="btn-tab-legal" class="tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold text-gray-600 hover:text-brand-crimson transition-all">
+                    Documentación Legal & SENASAG
+                </button>
+            </div>
+
+            <!-- TAB CONTENTS -->
+            <div class="bg-white rounded-3xl border border-brand-oat/60 p-6 md:p-10 shadow-sm">
+                
+                <!-- Tab 1: Estado de Resultados -->
+                <div id="tab-resultados" class="tab-content space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h3 class="font-serif text-xl font-bold text-brand-charcoal">Estado de Resultados Proyectado (Año 1 en Bs)</h3>
+                        <span class="text-xs font-semibold text-brand-olive bg-brand-olive/10 px-3 py-1 rounded-full">Expresado en Bolivianos</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <thead>
+                                <tr class="bg-brand-cream text-brand-charcoal uppercase text-xs">
+                                    <th class="p-3 border">Concepto Contable</th>
+                                    <th class="p-3 border text-right">Monto en Bs</th>
+                                    <th class="p-3 border">Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-semibold text-gray-800">Ventas Totales Proyectadas</td>
+                                    <td class="p-3 text-right font-bold text-emerald-600">Bs 86,328.00</td>
+                                    <td class="p-3 text-xs text-gray-500">Venta anual estimada en mercados de La Paz</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 text-gray-700">(-) Costos Variables (Materia Prima, Empaques)</td>
+                                    <td class="p-3 text-right text-brand-rose font-medium">-Bs 25,320.00</td>
+                                    <td class="p-3 text-xs text-gray-500">Avena, plantas medicinales, bolsas Kraft</td>
+                                </tr>
+                                <tr class="bg-brand-cream/50 font-bold">
+                                    <td class="p-3 text-brand-crimson">UTILIDAD BRUTA</td>
+                                    <td class="p-3 text-right text-brand-crimson">Bs 61,008.00</td>
+                                    <td class="p-3 text-xs text-gray-600">Margen bruto positivo</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 text-gray-700">(-) Costos Fijos Operativos (Alquiler, Servicios, Redes)</td>
+                                    <td class="p-3 text-right text-brand-rose">-Bs 9,240.00</td>
+                                    <td class="p-3 text-xs text-gray-500">Luz, agua, gas residencial e internet</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 text-gray-700">(-) Sueldos y Salarios del Personal</td>
+                                    <td class="p-3 text-right text-brand-rose">-Bs 27,500.00</td>
+                                    <td class="p-3 text-xs text-gray-500">Compensación asignada por producción/ventas</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 text-gray-700">(-) Impuesto a las Transacciones (IT 3%)</td>
+                                    <td class="p-3 text-right text-brand-rose">-Bs 2,589.84</td>
+                                    <td class="p-3 text-xs text-gray-500">Impuesto de ley aplicable</td>
+                                </tr>
+                                <tr class="bg-emerald-50 font-bold text-emerald-900">
+                                    <td class="p-3">RESULTADO NETO DEL EJERCICIO</td>
+                                    <td class="p-3 text-right text-emerald-700">Bs 12,273.87</td>
+                                    <td class="p-3 text-xs text-emerald-800">Rentabilidad líquida para reinversión</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Pronóstico de Ventas -->
+                <div id="tab-flujo" class="tab-content hidden space-y-6">
+                    <div class="flex justify-between items-center border-b pb-4">
+                        <h3 class="font-serif text-xl font-bold text-brand-charcoal">Pronóstico de Ventas Mensual por Variedad (Unidades)</h3>
+                        <span class="text-xs font-semibold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Precio Unitario: Bs 17.60</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs md:text-sm text-center border-collapse">
+                            <thead>
+                                <tr class="bg-brand-cream text-brand-charcoal uppercase">
+                                    <th class="p-2 border text-left">Variedad</th>
+                                    <th class="p-2 border">Ene</th>
+                                    <th class="p-2 border">Mar</th>
+                                    <th class="p-2 border">May</th>
+                                    <th class="p-2 border">Jul</th>
+                                    <th class="p-2 border">Sep</th>
+                                    <th class="p-2 border">Nov</th>
+                                    <th class="p-2 border">Dic</th>
+                                    <th class="p-2 border font-bold text-brand-crimson">Total Año</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-2 border text-left font-bold text-amber-700">🌼 Manzanilla</td>
+                                    <td class="p-2 border">60</td>
+                                    <td class="p-2 border">110</td>
+                                    <td class="p-2 border">130</td>
+                                    <td class="p-2 border">150</td>
+                                    <td class="p-2 border">165</td>
+                                    <td class="p-2 border">225</td>
+                                    <td class="p-2 border">250</td>
+                                    <td class="p-2 border font-bold text-brand-crimson">1,815 bolsas</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border text-left font-bold text-emerald-700">🌿 Menta</td>
+                                    <td class="p-2 border">50</td>
+                                    <td class="p-2 border">100</td>
+                                    <td class="p-2 border">115</td>
+                                    <td class="p-2 border">125</td>
+                                    <td class="p-2 border">135</td>
+                                    <td class="p-2 border">180</td>
+                                    <td class="p-2 border">200</td>
+                                    <td class="p-2 border font-bold text-brand-crimson">1,485 bolsas</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border text-left font-bold text-lime-700">🌱 Cedrón</td>
+                                    <td class="p-2 border">60</td>
+                                    <td class="p-2 border">95</td>
+                                    <td class="p-2 border">120</td>
+                                    <td class="p-2 border">140</td>
+                                    <td class="p-2 border">155</td>
+                                    <td class="p-2 border">190</td>
+                                    <td class="p-2 border">210</td>
+                                    <td class="p-2 border font-bold text-brand-crimson">1,605 bolsas</td>
+                                </tr>
+                                <tr class="bg-brand-cream font-bold">
+                                    <td class="p-2 border text-left">Total Unidades</td>
+                                    <td class="p-2 border">170</td>
+                                    <td class="p-2 border">305</td>
+                                    <td class="p-2 border">365</td>
+                                    <td class="p-2 border">415</td>
+                                    <td class="p-2 border">455</td>
+                                    <td class="p-2 border">595</td>
+                                    <td class="p-2 border">660</td>
+                                    <td class="p-2 border text-brand-crimson">4,905 bolsas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Organigrama -->
+                <div id="tab-personal" class="tab-content hidden space-y-6">
+                    <h3 class="font-serif text-xl font-bold text-brand-charcoal border-b pb-4">Organigrama Funcional del Emprendimiento</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-brand-warmwhite p-6 rounded-2xl border border-brand-oat text-center">
+                            <div class="w-16 h-16 mx-auto rounded-full bg-brand-crimson text-white flex items-center justify-center font-bold text-xl mb-3 shadow-md">NC</div>
+                            <h4 class="font-bold text-brand-charcoal">Natalia Cruz</h4>
+                            <span class="text-xs bg-brand-crimson/10 text-brand-crimson font-bold px-2 py-0.5 rounded-full">Gerente General</span>
+                            <p class="text-xs text-gray-500 mt-3">Planifica, organiza, dirige y supervisa el funcionamiento global de la mini empresa.</p>
+                        </div>
+
+                        <div class="bg-brand-warmwhite p-6 rounded-2xl border border-brand-oat text-center">
+                            <div class="w-16 h-16 mx-auto rounded-full bg-brand-rose text-white flex items-center justify-center font-bold text-xl mb-3 shadow-md">GM</div>
+                            <h4 class="font-bold text-brand-charcoal">Giselle Muñoz</h4>
+                            <span class="text-xs bg-brand-rose/10 text-brand-rose font-bold px-2 py-0.5 rounded-full">Área de Producción</span>
+                            <p class="text-xs text-gray-500 mt-3">Elaboración del producto, horneado, control de inocuidad y empaquetado Kraft.</p>
+                        </div>
+
+                        <div class="bg-brand-warmwhite p-6 rounded-2xl border border-brand-oat text-center">
+                            <div class="w-16 h-16 mx-auto rounded-full bg-brand-olive text-white flex items-center justify-center font-bold text-xl mb-3 shadow-md">VQ</div>
+                            <h4 class="font-bold text-brand-charcoal">Vania Quisbert</h4>
+                            <span class="text-xs bg-brand-olive/10 text-brand-olive font-bold px-2 py-0.5 rounded-full">Marketing & Finanzas</span>
+                            <p class="text-xs text-gray-500 mt-3">Control de libros contables, arqueo de caja, redes sociales y atención de clientes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Legal & SENASAG -->
+                <div id="tab-legal" class="tab-content hidden space-y-6">
+                    <h3 class="font-serif text-xl font-bold text-brand-charcoal border-b pb-4">Acreditaciones Sanitarias y Municipales</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl space-y-3">
+                            <div class="flex items-center gap-2 text-emerald-800 font-bold">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-emerald-600"></i>
+                                <span>Registro Sanitario SENASAG</span>
+                            </div>
+                            <p class="text-xs text-emerald-900 leading-relaxed">
+                                Autorización otorgada bajo la resolución RS-2025-0147 por el Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria. Certifica producto apto para consumo humano libre de alérgenos lácteos.
+                            </p>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-200 p-6 rounded-2xl space-y-3">
+                            <div class="flex items-center gap-2 text-blue-800 font-bold">
+                                <i data-lucide="file-text" class="w-6 h-6 text-blue-600"></i>
+                                <span>Licencia GAMLP La Paz</span>
+                            </div>
+                            <p class="text-xs text-blue-900 leading-relaxed">
+                                Licencia de Funcionamiento N° 0123456 emitida por la Secretaria Municipal de Desarrollo Económico del Gobierno Autónomo Municipal de La Paz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PUNTOS DE VENTA & UBICACIÓN EN LA PAZ -->
+    <section id="ubicacion" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-crimson font-bold text-xs uppercase tracking-widest bg-brand-crimson/10 px-3 py-1 rounded-full">Comercialización Directa</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-charcoal mt-3">Puntos de Distribución en La Paz</h2>
+                <p class="text-gray-600 mt-2">Encuéntranos estratégicamente en zonas de alta circulación paceña o coordina entega directa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Zone 1: Zona Sur -->
+                <div class="bg-brand-cream p-8 rounded-3xl border border-brand-oat/60 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-crimson text-white flex items-center justify-center font-bold mb-4 shadow-md">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-charcoal">Zona Sur (San Miguel)</h3>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Comercialización en inmediaciones de la Calle 21 de Calacoto, San Miguel y Plaza Humboldt. Sector con alta afluencia escolar, juvenil y residencial.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-brand-oat/50 text-xs text-brand-crimson font-bold flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>Entregas coordinadas: Lunes a Sábado</span>
+                    </div>
+                </div>
+
+                <!-- Zone 2: Centro Paceño -->
+                <div class="bg-brand-cream p-8 rounded-3xl border border-brand-oat/60 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-gold text-white flex items-center justify-center font-bold mb-4 shadow-md">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-charcoal">Centro Paceño (El Prado & Avaroa)</h3>
+                        <p class="text-sm text-gray-600 mt-2">
+                            Puntos de entrega en el Paseo del Prado, Sopocachi (Plaza Avaroa) y cercanías de la U.E. María Auxiliadora. Ideal para estudiantes y trabajadores.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-brand-oat/50 text-xs text-brand-gold font-bold flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>Entregas coordinadas: Horarios de Tarde</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y FORMULARIO -->
+    <section id="contacto" class="py-20 bg-brand-warmwhite border-t border-brand-oat/30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-brand-oat shadow-lg grid grid-cols-1 md:grid-cols-12 gap-8">
+                
+                <div class="md:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-brand-crimson text-xs font-bold uppercase tracking-widest block mb-1">Escríbenos</span>
+                        <h3 class="font-serif text-3xl font-bold text-brand-charcoal">¿Tienes dudas o pedidos especiales?</h3>
+                    </div>
+
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Atendemos pedidos corporativos, ferias de emprendimiento y consultas sobre ingredientes para personas con requerimientos dietéticos especiales.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-3 text-sm text-gray-700">
+                            <div class="w-9 h-9 rounded-xl bg-brand-cream text-brand-crimson flex items-center justify-center"><i data-lucide="phone" class="w-4 h-4"></i></div>
+                            <span>+591 7000-0000 (Atención WhatsApp)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-700">
+                            <div class="w-9 h-9 rounded-xl bg-brand-cream text-brand-crimson flex items-center justify-center"><i data-lucide="mail" class="w-4 h-4"></i></div>
+                            <span>contacto@avenova-bolivia.com</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-700">
+                            <div class="w-9 h-9 rounded-xl bg-brand-cream text-brand-crimson flex items-center justify-center"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+                            <span>La Paz, Bolivia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 bg-brand-cream p-6 rounded-2xl border border-brand-oat/50">
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-charcoal uppercase mb-1">Nombre Completo</label>
+                            <input type="text" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl border border-brand-oat focus:ring-2 focus:ring-brand-crimson focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-charcoal uppercase mb-1">Teléfono de Contacto</label>
+                            <input type="tel" required placeholder="Ej. 76543210" class="w-full px-4 py-3 rounded-xl border border-brand-oat focus:ring-2 focus:ring-brand-crimson focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-charcoal uppercase mb-1">Mensaje o Consulta</label>
+                            <textarea rows="3" required placeholder="Escribe tu mensaje aquí..." class="w-full px-4 py-3 rounded-xl border border-brand-oat focus:ring-2 focus:ring-brand-crimson focus:outline-none text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-crimson hover:bg-brand-darkcrimson text-white font-bold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER ESTILO EMPRESARIAL -->
+    <footer class="bg-brand-charcoal text-white pt-16 pb-12 border-t-4 border-brand-crimson">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full gradient-brand flex items-center justify-center text-white">
+                            <i data-lucide="cookie" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold tracking-wide text-white">AVENOVA</span>
+                    </div>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        Emprendimiento técnico enfocado en la elaboración de galletas saludables libres de lácteos, formuladas a base de avena y plantas medicinales en La Paz, Bolivia.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-oat uppercase tracking-wider mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><a href="#inicio" class="hover:text-brand-rose transition-colors">Inicio</a></li>
+                        <li><a href="#quienes-somos" class="hover:text-brand-rose transition-colors">Quiénes Somos</a></li>
+                        <li><a href="#productos" class="hover:text-brand-rose transition-colors">Productos</a></li>
+                        <li><a href="#simulador" class="hover:text-brand-rose transition-colors">Calculadora de Pedidos</a></li>
+                        <li><a href="#gestion" class="hover:text-brand-rose transition-colors">Informes Financieros</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-oat uppercase tracking-wider mb-4">Redes Sociales</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-brand-crimson flex items-center justify-center text-white transition-colors">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-brand-crimson flex items-center justify-center text-white transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-brand-crimson flex items-center justify-center text-white transition-colors">
+                            <i data-lucide="video" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <p>© 2026 AVENOVA - Unidad Educativa María Auxiliadora. Todos los derechos reservados.</p>
+                <p>La Paz, Bolivia • Nutrición e Inclusión Alimentaria</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT VANILLA LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. MENU OVERLAY TOGGLE (Estilo Soalpro / Soprole)
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('translate-x-full')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // 2. HERO SLIDER DATA AND LOGIC
+        const sliderData = [
+            {
+                emoji: "🌼",
+                title: "Variedad Manzanilla",
+                tag: "Propiedad Digestiva",
+                desc: "Suave infusión de manzanilla triturada en masa de avena horneada. Ideal para prevenir molestias estomacales y brindar saciedad saludable.",
+                bg: "bg-amber-500"
+            },
+            {
+                emoji: "🌿",
+                title: "Variedad Menta Fresca",
+                tag: "Sabor Revitalizante",
+                desc: "Hojas seleccionadas de menta natural que otorgan una agradable frescura herbal en cada mordisco.",
+                bg: "bg-emerald-600"
+            },
+            {
+                emoji: "🌱",
+                title: "Variedad Cedrón Cítrico",
+                tag: "Aroma Reconfortante",
+                desc: "Esencia cítrica y relajante de hierba luisa. Combina perfectamente con el dulzor natural de la miel pura de abeja.",
+                bg: "bg-lime-600"
+            }
+        ];
+
+        let currentSlide = 0;
+        const sliderContent = document.getElementById('hero-slider-content');
+
+        function renderSlide(index) {
+            const slide = sliderData[index];
+            sliderContent.innerHTML = `
+                <div class="text-center space-y-4 py-4 animate-fade-in">
+                    <div class="w-28 h-28 mx-auto rounded-full ${slide.bg} text-white flex items-center justify-center text-5xl shadow-lg">
+                        ${slide.emoji}
+                    </div>
+                    <span class="inline-block bg-brand-cream text-brand-crimson text-xs font-bold uppercase px-3 py-1 rounded-full border border-brand-oat">
+                        ${slide.tag}
+                    </span>
+                    <h3 class="font-serif text-3xl font-bold text-brand-charcoal">${slide.title}</h3>
+                    <p class="text-xs text-gray-600 leading-relaxed max-w-xs mx-auto">
+                        ${slide.desc}
+                    </p>
+                    <div class="bg-brand-warmwhite p-3 rounded-2xl border border-brand-oat/50 text-xs font-bold text-brand-crimson">
+                        Empaque Kraft Biodegradable • 6 Galletas por bolsa
+                    </div>
+                </div>
+            `;
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('#slider-dots button');
+            dots.forEach((dot, idx) => {
+                if(idx === currentSlide) {
+                    dot.className = "w-6 h-3 rounded-full bg-brand-crimson transition-all";
+                } else {
+                    dot.className = "w-3 h-3 rounded-full bg-brand-oat transition-all";
+                }
+            });
+        }
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + sliderData.length) % sliderData.length;
+            renderSlide(currentSlide);
+        });
+
+        document.getElementById('next-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % sliderData.length;
+            renderSlide(currentSlide);
+        });
+
+        // Initialize First Slide
+        renderSlide(0);
+
+        // Auto Advance Slider every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % sliderData.length;
+            renderSlide(currentSlide);
+        }, 5000);
+
+        // 3. ORDER CALCULATOR LOGIC
+        const PRICE_PER_BAG = 17.60;
+        const quantities = {
+            manzanilla: 0,
+            menta: 0,
+            cedron: 0
+        };
+
+        function updateQty(flavor, delta) {
+            quantities[flavor] = Math.max(0, quantities[flavor] + delta);
+            document.getElementById(`qty-${flavor}`).innerText = quantities[flavor];
+            
+            const subtotal = quantities[flavor] * PRICE_PER_BAG;
+            document.getElementById(`subtotal-${flavor}`).innerText = `Bs ${subtotal.toFixed(2)}`;
+            
+            calculateTotal();
+        }
+
+        function quickAdd(flavor) {
+            const flavorKey = flavor.toLowerCase();
+            updateQty(flavorKey, 1);
+            document.getElementById('simulador').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateTotal() {
+            const totalBags = quantities.manzanilla + quantities.menta + quantities.cedron;
+            const totalPrice = totalBags * PRICE_PER_BAG;
+            const totalCookies = totalBags * 6;
+
+            document.getElementById('grand-total').innerText = `Bs ${totalPrice.toFixed(2)}`;
+            document.getElementById('total-units').innerText = `${totalBags} bolsitas en total (${totalCookies} galletas)`;
+        }
+
+        function resetCalculator() {
+            quantities.manzanilla = 0;
+            quantities.menta = 0;
+            quantities.cedron = 0;
+            
+            ['manzanilla', 'menta', 'cedron'].forEach(f => {
+                document.getElementById(`qty-${f}`).innerText = "0";
+                document.getElementById(`subtotal-${f}`).innerText = "Bs 0.00";
+            });
+            
+            calculateTotal();
+        }
+
+        function sendWhatsAppOrder() {
+            const totalBags = quantities.manzanilla + quantities.menta + quantities.cedron;
+            if(totalBags === 0) {
+                alert("Por favor, selecciona al menos 1 bolsita de galletas para realizar tu pedido.");
+                return;
+            }
+
+            const totalBs = (totalBags * PRICE_PER_BAG).toFixed(2);
+            let message = `¡Hola AVENOVA! Quisiera realizar el siguiente pedido de galletas sin lactosa:\n\n`;
+            
+            if(quantities.manzanilla > 0) message += `• Galletas de Manzanilla: ${quantities.manzanilla} bolsita(s)\n`;
+            if(quantities.menta > 0) message += `• Galletas de Menta: ${quantities.menta} bolsita(s)\n`;
+            if(quantities.cedron > 0) message += `• Galletas de Cedrón: ${quantities.cedron} bolsita(s)\n`;
+            
+            message += `\n*Total Estimado:* Bs ${totalBs}\n`;
+            message += `\n¿Podrían indicarme la disponibilidad y punto de entrega en La Paz? Gracias.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/59170000000?text=${encodedMessage}`, '_blank');
+        }
+
+        // 4. TAB SWITCHER LOGIC
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Deactivate all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold text-gray-600 hover:text-brand-crimson transition-all";
+            });
+
+            // Show selected content
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Activate selected button
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.className = "tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all bg-brand-crimson text-white shadow-xs";
+        }
+
+        // 5. CONTACT FORM HANDLER
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("¡Gracias por comunicarte con AVENOVA! Nos pondremos en contacto contigo a la brevedad.");
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
